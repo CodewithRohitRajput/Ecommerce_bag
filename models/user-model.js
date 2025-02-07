@@ -1,9 +1,13 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/bag_web');
+
 
 const userSchema = new mongoose.Schema({
-    fullname : String,
+    fullname : {
+        type :String,
+        minLength : 3,
+        trim : true,
+    },
     email : String,
     password : String,
     cart:{
